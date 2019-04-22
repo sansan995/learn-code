@@ -1,0 +1,61 @@
+
+###########################################################################
+#                            TEXTMATE SNIPPETS                            #
+###########################################################################
+
+#! asyncio 
+snippet asy "asyncio def function" b
+async def $1(${2:args}):
+	${0:${VISUAL:pass}}
+	
+endsnippet
+
+snippet asygather "asyncio loop gather run" b
+async def main():
+	await asyncio.gather(
+		{$1:function}({$2:args}),
+		$1({$3:args}),
+		$1({$4:args}),
+			)
+asyncio.run(main())
+endsnippet
+
+snippet asyloop "asyncio loop run" b
+coroutine1 = ${1:function}($2)
+coroutine2 = $1(${3:args})
+coroutine3 = $1(${4:args})
+
+tasks = [
+	asyncio.ensure_future(coroutine1),
+	asyncio.ensure_future(coroutine2),
+	asyncio.ensure_future(coroutine3)
+]
+loop = asyncio.get_event_loop()
+loop.run_until_complete(asyncio.wait(tasks))
+
+for task in tasks:
+	print('Task ret: ', task.result())
+
+
+endsnippet
+
+snippet f "print format" w
+f'$1{$2}'
+$0
+endsnippet
+#snippet ifmain "ifmain" b
+#if __name__ == `!p snip.rv = get_quoting_style(snip)`__main__`!p snip.rv = get_quoting_style(snip)`:
+#	${1:${VISUAL:main()}}
+#endsnippet
+#
+#snippet with "with" b
+#with ${1:expr}`!p snip.rv = " as " if t[2] else ""`${2:var}:
+#	${3:${VISUAL:pass}}
+#$0
+#endsnippet
+#
+#snippet for "for loop" b
+#for ${1:item} in ${2:iterable}:
+#	${3:${VISUAL:pass}}
+#endsnippet
+#
