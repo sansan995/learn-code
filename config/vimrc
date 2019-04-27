@@ -93,12 +93,15 @@ set noswapfile "不要生成swap文件
 set nobackup
 set bufhidden=hide "当buffer被丢弃的时候隐藏它
 set expandtab                 "Use space instead of tabs
+set hls
 
 let mapleader = ","  "设置外部复制粘帖
 let g:mapleader = ","
 map Y "+y
 map P "+p
- 
+imap jk <ESC>
+
+
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
 let g:neocomplcache_force_overwrite_completefunc = 1
@@ -112,7 +115,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories=['/home/sansan995/UltiSnips']
+let g:UltiSnipsSnippetDirectories=['/home/sansan995/.vim/UltiSnips']
 " 配置airline
 " 
 let g:airline_powerLine_font = 1

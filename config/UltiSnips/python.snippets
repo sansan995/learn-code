@@ -2,6 +2,26 @@
 ###########################################################################
 #                            TEXTMATE SNIPPETS                            #
 ###########################################################################
+#global !p
+#def upper_right(inp):
+#   return 
+#endglobal
+#
+#snippet wow
+#${1:Text} `!p snip.rv = upper_right(t[1])`
+#endsnippet
+#
+
+snippet doc "Document description"  b
+# """
+# File: `!p snip.rv = fn`
+# Description: $1
+# """
+$0
+endsnippet
+snippet wow
+${1:Text} `!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
+endsnippet
 
 #! asyncio 
 snippet asy "asyncio def function" b
